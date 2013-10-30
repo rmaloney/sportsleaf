@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Week:</b>
+  <%= @game.week %>
+</p>
+
+<p>
+  <b>Home team:</b>
+  <%= @game.home_team %>
+</p>
+
+<p>
+  <b>Visitor team:</b>
+  <%= @game.visitor_team %>
+</p>
+
+<p>
+  <b>Favorite:</b>
+  <%= @game.favorite %>
+</p>
+
+<p>
+  <b>Line:</b>
+  <%= @game.line %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @game.start_date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @game.start_time %>
+</p>
+
+<p>
+  <b>Kickoff:</b>
+  <%= @game.kickoff %>
+</p>
+
+<p>
+  <b>Favorite score:</b>
+  <%= @game.favorite_score %>
+</p>
+
+<p>
+  <b>Underdog score:</b>
+  <%= @game.underdog_score %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

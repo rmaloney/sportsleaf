@@ -1,0 +1,105 @@
+/* Define app specific styles here */
+
+.content {
+	padding: 25px; 
+	border: 1px solid #999999; 
+	box-shadow: 5px 5px 3px #888888; 
+	background: #ffffff;
+	margin-left: auto ;
+  margin-right: auto ;
+}
+
+	.content h2{
+		color: black; 
+		font-family: 'Open Sans', sans-serif;
+	
+	}
+
+.headline_font  {font-family: 'Pathway Gothic One', sans-serif;}
+.project_info {min-height: 400px; }
+.post{
+	min-height: 300px;
+	
+}
+	.post img {padding: 5px;}
+	
+	
+.white_box {
+	padding: 25px; 
+	border: 1px solid #999999; 
+	box-shadow: 5px 5px 3px #888888; 
+	background: #ffffff;
+	margin-bottom: 15px;
+	margin-top: 30px;
+}
+
+#register_form{
+ text-align: center;
+}
+footer{
+	text-align: center;
+}
+/* Color Classes */
+
+.red {color: #A60201;}
+.blue { }
+.dark_blue { }
+
+/* Misc */
+
+/* Even Length Buttons */
+
+.custom {
+    width: 80% !important;
+}
+
+.promo{
+	width: 25%;
+	
+	float: left;
+	margin-right: 10px;
+}
+
+
+/* login */
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

@@ -1,0 +1,36 @@
+<h1>Games</h1>
+
+<table class="table table-bordered">
+  <tr>
+    
+    <th>Home </th>
+    <th>Visitor </th>
+    <th>Favorite</th>
+    <th>Line</th>
+    <th>Start time</th>
+    
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+ 
+    <td><%= game.home_team %></td>
+    <td><%= game.visitor_team %></td>
+    <td><%= game.favorite %></td>
+    <td><%= game.line %></td>
+    <td><%= game.start_time %></td>
+
+    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game', new_game_path %>

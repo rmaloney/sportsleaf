@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  week: 1
+  home_team: MyString
+  visitor_team: MyString
+  favorite: MyString
+  line: 9.99
+  start_date: 2013-09-12
+  start_time: 2013-09-12 00:20:40
+  kickoff: MyString
+  favorite_score: 1
+  underdog_score: 1
+
+two:
+  week: 1
+  home_team: MyString
+  visitor_team: MyString
+  favorite: MyString
+  line: 9.99
+  start_date: 2013-09-12
+  start_time: 2013-09-12 00:20:40
+  kickoff: MyString
+  favorite_score: 1
+  underdog_score: 1
