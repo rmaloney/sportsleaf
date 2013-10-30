@@ -2,3 +2,5 @@
 
 
 This is a simple app to let groups of people create, organize and track pools for handicapping sports.
+
+It's made to be an improvement over an earlier app authored over a year ago, allowing users to create and manage their own pools.
