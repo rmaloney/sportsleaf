@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @week = 9
+    @games = Game.where(:week => @week)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +17,8 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
 
+   # @home_stats = Game.matchup_stats(@game.home_team)
+    # @visitor_stats = Game.matchup_stats(@game.visitor_team)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @game }

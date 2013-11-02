@@ -1,55 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Week:</b>
-  <%= @game.week %>
-</p>
 
-<p>
-  <b>Home team:</b>
-  <%= @game.home_team %>
-</p>
+      <div class="game_details">
+        <h3><%= @game.visitor_team %>   at   <%= @game.home_team %>  </h3>
+          <br/>
 
-<p>
-  <b>Visitor team:</b>
-  <%= @game.visitor_team %>
-</p>
+          <h3> <%= @game.start_date.strftime("%B #{@game.start_date.day.ordinalize},"+' %Y')  + " @ #{@game.kickoff} " %> </h3> <br/>
+          
+         <span> <h4><span class="orange"> Favorite: </span><%= "#{@game.favorite}(-#{@game.line}) " %>   </h4>
+          
+       <div id="game_matchup">
+          
+          
+          <h3><strong> Matchup </strong></h3>
+          <table class="table  table-bordered table-striped table-condensed matchup" style="width: 60%;">
+            <thead>
+              <th>Category</th>
+              <th><%= @game.visitor_team %></th>
+              <th><%= @game.home_team %> </th>
+            </thead>
+            <tr>
+              <td><strong>Rushing YPG</strong></td>
+              <td></td>
+              <td></td>
+            <tr>
+              <td><strong>Opp Rushing YPG</strong></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Passing YPG</strong></td>
+             <td></td>
+             <td></td>
+            </tr>
+            <tr>
+              <td><strong>Opp Passing YPG</strong></td>
+             <td></td>
+             <td></td>
+            </tr>
+          </table>
+        </div>
+        
+        
+         
+          <br/>
+          
+     
+            <p><%= hidden_field(:game_id, @game.id) %></p>
 
-<p>
-  <b>Favorite:</b>
-  <%= @game.favorite %>
-</p>
+        
+              
+              <br/>
+              <% if can? :update, @game %>
+                <%= button_to "Results for this game", new_result_path, :class => "btn btn-primary", :method => "get"  %>
+                <%= link_to 'Edit', edit_game_path(@game) %> 
+              <% end %>
+            <%= @message %>
+            
+        </div>
 
-<p>
-  <b>Line:</b>
-  <%= @game.line %>
-</p>
-
-<p>
-  <b>Start date:</b>
-  <%= @game.start_date %>
-</p>
-
-<p>
-  <b>Start time:</b>
-  <%= @game.start_time %>
-</p>
-
-<p>
-  <b>Kickoff:</b>
-  <%= @game.kickoff %>
-</p>
-
-<p>
-  <b>Favorite score:</b>
-  <%= @game.favorite_score %>
-</p>
-
-<p>
-  <b>Underdog score:</b>
-  <%= @game.underdog_score %>
-</p>
+  
 
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+
+    
+
+
+  

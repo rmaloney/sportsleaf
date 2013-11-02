@@ -1,36 +1,45 @@
-<h1>Games</h1>
+<h2>Current Lines</h2>
+    <br/>
 
-<table class="table table-bordered">
-  <tr>
-    
-    <th>Home </th>
-    <th>Visitor </th>
-    <th>Favorite</th>
-    <th>Line</th>
-    <th>Start time</th>
-    
-    
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <table class="table table-bordered table-condensed table-striped" width="50%" style="text-align: center;">
+    <thead>
+      <tr>
+        <th> Day </th>
+        <th>Kickoff </th>
+        <th>Home </th>
+        <th>Visitor </th>
+        <th>Selection</th>
+        <th>Star Pick? </th>
+        <th>Game Details</th>
 
-<% @games.each do |game| %>
-  <tr>
- 
-    <td><%= game.home_team %></td>
-    <td><%= game.visitor_team %></td>
-    <td><%= game.favorite %></td>
-    <td><%= game.line %></td>
-    <td><%= game.start_time %></td>
+      </tr>
+    </thead>
+    <tbody>
+        <% @games.each do |game| %>
+          <tr>
+            
+            <td><%= game.start_date %> </td>
+            <td><%= game.kickoff %> </td>
+            <td><%= game.home_team %></td>
+            <td><%= game.visitor_team %> </td>
+            <td><%= select_tag "selection", options_for_select([["#{game.home_team}"], ["#{game.visitor_team}"]]), :style => "width: 100px;", %></td>
+            <td><%= check_box_tag "star_pick", :style => "float: right;" %></td>
+           
+           
+            <td>
+                <%= link_to 'Details', game, :class => "btn btn-primary btn-inverse" %> 
 
-    <td><%= link_to 'Show', game %></td>
-    <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+            <% if can? :update, game %>
+                <%= link_to 'Edit', edit_game_path(game), :class => "btn " %>
+            <% end %>
+                
+            </td>
 
-<br />
+        </tr>
+        
+        <% end %>  
 
-<%= link_to 'New Game', new_game_path %>
+    </tbody> 
+    </table>
+
+    <br />
