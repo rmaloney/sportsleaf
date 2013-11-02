@@ -3,9 +3,7 @@
 
       <div class="game_details">
         <h3><%= @game.visitor_team %>   at   <%= @game.home_team %>  </h3>
-          <br/>
-
-          <h3> <%= @game.start_date.strftime("%B #{@game.start_date.day.ordinalize},"+' %Y')  + " @ #{@game.kickoff} " %> </h3> <br/>
+          <h4> <%= @game.start_date.strftime("%B #{@game.start_date.day.ordinalize},"+' %Y')  + " @ #{@game.kickoff} " %> </h3> <br/>
           
          <span> <h4><span class="orange"> Favorite: </span><%= "#{@game.favorite}(-#{@game.line}) " %>   </h4>
           

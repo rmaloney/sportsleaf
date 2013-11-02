@@ -74,6 +74,42 @@ class Game < ActiveRecord::Base
 		'Jacksonville' => 'http://espn.go.com/nfl/team/_/name/jac/jacksonville-jaguars',
 		'Tennessee' => 'http://espn.go.com/nfl/team/_/name/ten/tennessee-titans'
 	}
+
+	#Abbrev Map
+	ABBREV_MAP = {
+		'Dallas' 	=>	 'DAL',
+		'NY Giants' 	=>	 'NYG',
+		'Philadelphia' 	=>	 'PHL',
+		'Washington' 	=>	 'WAS',
+		'Arizona' 	=>	 'ARZ',
+		'San Francisco' 	=>	 'SF',
+		'Seattle' 	=>	 'SEA',
+		'St. Louis' 	=>	 'STL',
+		'Chicago' 	=>	 'CHI',
+		'Detroit' 	=>	 'DET',
+		'Green Bay' 	=>	 'GB',
+		'Minnesota' 	=>	 'MIN',
+		'Atlanta' 	=>	  'ATL',
+		'Carolina' 	=>	 'CAR',
+		'New Orleans' 	=>	 'NO',
+		'Tampa Bay' 	=>	 'TB',
+		'Buffalo' 	=>	 'BUF',
+		'Miami' 	=>	 'NE',
+		'New England' 	=>	 'NE',
+		'NY Jets' 	=>	 'NYJ',
+		'Denver' 	=>	 'DEN',
+		'Kansas City' 	=>	 'KAN',
+		'Oakland' 	=>	 'OAK',
+		'San Diego' 	=>	 'SD',
+		'Baltimore' 	=>	 'BAL',
+		'Cincinnati' 	=>	 'CIN',
+		'Cleveland' 	=>	 'CLE',
+		'Pittsburgh' 	=>	 'PIT',
+		'Houston' 	=>	 'HOU',
+		'Indianapolis' 	=>	 'IND',
+		'Jacksonville' 	=>	 'JAC',
+		'Tennessee' 	=>	 'TEN'
+	}
 	
 	# Set the default value for status to "Open" after creation
 	# Update to pending after cutoff time
@@ -115,6 +151,20 @@ class Game < ActiveRecord::Base
 	    end
 	end
 
+	def self.process_score
+		fav = self.favorite_score
+		dog = dog.underdog_score
+
+		net = fav - dog
+		if net == line
+			self.update_attributes(:cover => "PUSH")
+		elsif net > line
+			self.update_attributes(:cover => "FAVORITE")
+		else
+			self.update_attributes(:cover => "UNDERDOG")
+		end
+	end
+
 	def self.matchup_stats(team)
 		url = URL_MAP[team]
 		doc = Nokogiri::HTML(open(url))
@@ -123,6 +173,7 @@ class Game < ActiveRecord::Base
 		yards = []
 		ranks = []
 
+		# Fetch raw yardage for cats
 		doc.css("div.mod-content > span").each do |h|
 			yards << h.text
 		end
